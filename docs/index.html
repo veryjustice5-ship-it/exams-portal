@@ -13,16 +13,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
-      // Automatically ensure trailing slash on GitHub Pages repository URLs to prevent relative asset 404s
       (function() {
+        // 1. Ensure trailing slash on GitHub Pages repository root to prevent relative asset 404s
         var path = window.location.pathname;
         if (window.location.hostname.endsWith('github.io') && path.indexOf('.') === -1 && !path.endsWith('/')) {
           window.location.replace(path + '/' + window.location.search + window.location.hash);
+          return;
+        }
+
+        // 2. If deployed to GitHub Pages with 'Deploy from branch: main / (root)',
+        // the uncompiled source index.html is served instead of built assets.
+        // Automatically route to the compiled production build in /docs/
+        function checkSourceRedirect() {
+          if (window.location.hostname.endsWith('github.io') && !window.location.pathname.includes('/docs')) {
+            var isSourceHtml = document.querySelector('script[src*="src/main.tsx"]');
+            if (isSourceHtml) {
+              var cleanPath = window.location.pathname.replace(/\/+$/, '');
+              window.location.replace(cleanPath + '/docs/' + window.location.search + window.location.hash);
+            }
+          }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', checkSourceRedirect);
+        } else {
+          checkSourceRedirect();
         }
       })();
     </script>
-    <script type="module" crossorigin src="./assets/index-Dd0SxJfi.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-YhAn_uTA.css">
+    <script type="module" crossorigin src="./assets/index-gkqap8AX.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CraTUwS-.css">
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased font-sans selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>

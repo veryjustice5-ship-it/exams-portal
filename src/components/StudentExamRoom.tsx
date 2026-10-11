@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Exam, ExamSubmission, GradingPolicy, StudentAnswer } from '../types/exam';
 import { normalizeStudentId, calculateGrade, formatCurrentTimestamp } from '../utils/gradeCalculator';
 import { ElgiLogo } from './ElgiLogo';
+import heroAcademicExamImage from '../assets/images/hero_academic_exam_1791721397135.jpg';
 import {
   Clock,
   CheckCircle2,
@@ -515,7 +516,7 @@ export const StudentExamRoom: React.FC<StudentExamRoomProps> = ({
         {/* Banner with Academic Hero */}
         <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
           <img
-            src="/src/assets/images/hero_academic_exam_1791721397135.jpg"
+            src={heroAcademicExamImage}
             alt="Academic Exam Hall"
             className="w-full h-48 sm:h-56 object-cover opacity-40 mix-blend-luminosity"
           />

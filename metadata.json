@@ -1,0 +1,8 @@
+{
+  "name": "ELGI AutoGrade Exam Portal",
+  "description": "Official ELGI examination portal with automated student marking, institutional letter grading, secure admin question control, and portal synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
+
